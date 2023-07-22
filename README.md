@@ -1,17 +1,14 @@
 # easy-image-process
-For easy automatically ballancing and denoising images
+
+The repository contains a few simple functions for auto-scaling and denoising images (in `scaling.py` and `denoising.py`). The general usage will be to apply one of the two auto-scaling methods, and then apply one of the denoising methods on top of this.
 
 ## Installation
 
-No proper requirements, but requires installation of :
-- skimage
-- cv2 (opencv-python)
+No proper requirements, but requires installation of:
+- `skimage`
+- `cv2` (opencv-python)
 
-
-## Summary
-
-The repository contains a few simple functions for auto-scaling and denoising images (in `scaling.py` and `denoising.py`). The general usage will be to pick one of the two auto-scaling methods, and then apply one of the denoising methods on top
-
+`imageio` can also be used for each loading of images, although is not requred anywhere in the code
 
 ## scaling.py
 
