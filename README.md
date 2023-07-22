@@ -2,7 +2,7 @@
 
 The repository contains a few simple functions for auto-scaling and denoising images (in `scaling.py` and `denoising.py`). The general usage will be to apply one of the two auto-scaling methods, and then apply one of the denoising methods on top of this.
 
-## Installation
+# Installation
 
 No proper requirements, but requires installation of:
 - `skimage`
@@ -10,7 +10,7 @@ No proper requirements, but requires installation of:
 
 `imageio` can also be used for each loading of images, although is not requred anywhere in the code
 
-## scaling.py
+# scaling.py
 
 `scaling.py` contains two different methods of auto scaling images:
 
@@ -24,13 +24,13 @@ No proper requirements, but requires installation of:
 	This creates a single image of random noise drawn from the the statistics of the full sample, and then uses this to match to.
 
 
-## denoising.py
+# denoising.py
 
 `denoising.py` containg a single function for denoising images, with multiple options for method. The most succesful denoising method seems to be wavelet denoising (for which you can use wither "BayesShrink" or "VisuShrink"
 
 Example usage would be: `denoised_image = denoise(image, method='BayesShrink')`
 
-## Example Code
+# Example Code
 
 Full scaling process is very easy. Just run a scaling step, followed by a denoising step, e.g.:
 ```
