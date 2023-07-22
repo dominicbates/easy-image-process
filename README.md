@@ -8,12 +8,12 @@ No proper requirements, but requires installation of :
 - cv2 (opencv-python)
 
 
-## Usage
+## Summary
 
-The repository contains a few simple functions for auto-scaling and denoising images (in `scaling.py` and `denoising.py`)
+The repository contains a few simple functions for auto-scaling and denoising images (in `scaling.py` and `denoising.py`). The general usage will be to pick one of the two auto-scaling methods, and then apply one of the denoising methods on top
 
 
-## `scaling.py`
+## scaling.py
 
 `scaling.py` contains two different methods of auto scaling images:
 
@@ -24,13 +24,13 @@ The repository contains a few simple functions for auto-scaling and denoising im
 	`scaled_image = match_reference_image(image, reference_image)`
 
 
-## `denoising.py`
+## denoising.py
 
 `denoising.py` containg a single function for denoising images, with multiple options for method. The most succesful denoising method seems to be wavelet denoising (for which you can use wither "BayesShrink" or "VisuShrink"
 
 Example usage would be: `denoised_image = denoise(image, method='BayesShrink')`
 
-## Example code
+## Example Code
 
 Full scaling process is very easy. Just run a scaling step, followed by a denoising step, e.g.:
 `scaled_image = histogram_equalization(image)
