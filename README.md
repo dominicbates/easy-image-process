@@ -34,6 +34,8 @@ Example usage would be: `denoised_image = denoise(image, method='BayesShrink')`
 
 Full scaling process is very easy. Just run a scaling step, followed by a denoising step, e.g.:
 ```
+from scaling import histogram_equalization
+from denoising import denoise
 scaled_image = histogram_equalization(image)
 denoised_image = denoise(scaled_image, method='BayesShrink')
 ```
