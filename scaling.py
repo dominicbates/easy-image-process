@@ -49,6 +49,8 @@ def get_average_hist(images):
     Calculates the average histogram from a set of images
     (mostly just for use in below functions)
     '''
+    import copy
+    from skimage.exposure import histogram
 
     # Blank arrays for storing values
     histogram_counts_r = np.zeros(256)
@@ -63,14 +65,15 @@ def get_average_hist(images):
         
         # Get hist of this image
         image_hist = histogram(image, nbins=256, channel_axis=-1)
+        bins = image_hist[1]
 
         # Add values to correct size array (256)
         hr = np.zeros(256)
         hg = np.zeros(256)
         hb = np.zeros(256)
-        hr[0:len(image_hist[0][0])] = image_hist[0][0]/n_pixels
-        hg[0:len(image_hist[0][1])] = image_hist[0][1]/n_pixels
-        hb[0:len(image_hist[0][2])] = image_hist[0][2]/n_pixels
+        hr[bins[0]:(bins[-1]+1)] = image_hist[0][0]/n_pixels
+        hg[bins[0]:(bins[-1]+1)] = image_hist[0][1]/n_pixels
+        hb[bins[0]:(bins[-1]+1)] = image_hist[0][2]/n_pixels
 
         # Add cumilative counts per channel
         histogram_counts_r += hr
@@ -82,9 +85,9 @@ def get_average_hist(images):
     histogram_counts_g = histogram_counts_g/len(images)
     histogram_counts_b = histogram_counts_b/len(images)
     counts = [histogram_counts_r, histogram_counts_g, histogram_counts_b]
-
     
     return counts, histogram_bins
+
     
      
 def create_reference_image(images, n_pixels=1000):
