@@ -14,13 +14,14 @@ No proper requirements, but requires installation of:
 
 `scaling.py` contains two different methods of auto scaling images:
 
-- `scaled_image = histogram_equalization(image)` which can be used to equalise the histograms of an image
-- `scaled_image = match_reference_image(image, reference_image)` which can be used to transform an image to match the histograms of a reference image. 
-- For matching the statistics of a large set of reference images you can run:
+- For "equalising" the histograms of an image you can run: `scaled_image = histogram_equalization(image)` 
+- For transforming an image to match the histograms of a reference image you can run: `scaled_image = match_reference_image(image, reference_image)` 
+- If you want to match the statistics of a large set of reference images (rather than an individual image) you can run the following:
 	```
-	reference_image = match_reference_image([image1, image2, ...])
+	reference_image = create_reference_image([image1, image2, ...])
 	scaled_image = match_reference_image(image, reference_image)
 	```
+	This creates a single image of random noise drawn from the the statistics of the full sample, and then uses this to match to.
 
 
 ## denoising.py
