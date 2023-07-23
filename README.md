@@ -26,13 +26,13 @@ No proper requirements, but requires installation of:
 
 # denoising.py
 
-`denoising.py` containg a single function for denoising images, with multiple options for method. The most succesful denoising method seems to be wavelet denoising (for which you can use wither "BayesShrink" or "VisuShrink"
+`denoising.py` containg a single function for denoising images, with multiple options for method. The most succesful denoising method seems to be wavelet denoising (for which you can use wither "BayesShrink" or "VisuShrink")
 
 Example usage would be: `denoised_image = denoise(image, method='BayesShrink')`
 
 # Example Code
 
-Full scaling process is very easy. Just run a scaling step, followed by a denoising step, e.g.:
+Full process is very easy. Just run a scaling step, followed by a denoising step if desired, e.g.:
 ```
 # Import functions
 from scaling import histogram_equalization
