@@ -37,7 +37,7 @@ Full process is very easy. Just run a scaling step, followed by a denoising step
 ```
 # Import functions
 from scaling import histogram_equalization_16
-from denoising import denoise, 
+from denoising import denoise, post_denoise
 
 # Scale image using equalisation
 scaled_image = histogram_equalization_16(image)
@@ -45,8 +45,8 @@ scaled_image = histogram_equalization_16(image)
 # Denoise this image using wavelet & BayesShrink
 denoised_image, sigma_est = denoise(scaled_image, method='BayesShrink', div_sigma=0.25) # 0.25 means more denoising
 
-# Post denoising step
-full_cleaned_image = denoise_post(denoised_image, sigma_est, desired_ratio=3, scaling_const=100)
+# Post-denoising step to clean up some more if needed
+full_cleaned_image = post_denoise(denoised_image, sigma_est, desired_ratio=3, scaling_const=100)
 
 # Re-scaling if desired
 # ...
