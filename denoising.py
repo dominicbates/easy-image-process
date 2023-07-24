@@ -47,7 +47,7 @@ def denoise(image, method='BayesShrink', div_sigma=1, median_filter_size=3):
     elif method == 'MedianSquareFilter':
         im_denoised = median_filter(image, median_filter_size)
 
-    return im_denoised
+    return im_denoised, sigma_est
 
 
 def denoise_post(image, initial_sigma, desired_ratio, scaling_const=100):
