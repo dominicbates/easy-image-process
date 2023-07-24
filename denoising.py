@@ -50,7 +50,7 @@ def denoise(image, method='BayesShrink', div_sigma=1, median_filter_size=3):
     return im_denoised, sigma_est
 
 
-def denoise_post(image, initial_sigma, desired_ratio, scaling_const=100):
+def post_denoise(image, initial_sigma, desired_ratio, scaling_const=100):
     '''
     '''
     window_size = get_best_window_size(image, initial_sigma, desired_ratio, scaling_const)
