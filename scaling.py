@@ -240,7 +240,7 @@ def stretch_to_format(image, image_type='uint16'):
     '''
     Stretches image so min and max values are 0 and 255 (or 65535 for 16 bit)
     '''
-    
+
     # Check input
     if image_type not in ['uint16', 'uint8']:
         raise ValueError('"image_type" must be either "uint16" or "uint8"') 
@@ -254,7 +254,7 @@ def stretch_to_format(image, image_type='uint16'):
     # Transform to right type:
     if image_type == 'uint16':
         return np.array((65535*image/max_val).astype(int),dtype ='uint16')
-    elif image_type == 'uint8'
+    elif image_type == 'uint8':
         return np.array((255*image/max_val).astype(int),dtype ='uint8')
 
 
